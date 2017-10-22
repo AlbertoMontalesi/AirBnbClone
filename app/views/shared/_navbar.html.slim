@@ -18,19 +18,19 @@
             - else
               li.dropdown
                 a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
-                  = current_user.email
+                  = current_user.fullname
                   span.caret
-              ul.dropdown-menu
-                li
-                  a href="#"  Manage listings
-                li
-                  a href="#"  List your space
-                li
-                  a href="#"  Your reservations
-                li
-                  a href="#"  Your trips
-                li.divider role="separator" 
-                li
-                  = link_to "Edit Profile", edit_user_registration_path
-                li
-                  = link_to "Log out", destroy_user_session_path, method: :delete
+                ul.dropdown-menu
+                  li
+                    a href="#"  Manage listings
+                  li
+                    a href="#"  List your space
+                  li
+                    a href="#"  Your reservations
+                  li
+                    a href="#"  Your trips
+                  li.divider role="separator" 
+                  li
+                    = link_to "Edit Profile", edit_user_registration_path
+                  li
+                    = link_to "Log out", destroy_user_session_path, method: :delete
