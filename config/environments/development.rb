@@ -54,4 +54,14 @@ Rails.application.configure do
   
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.mailgun.org',
+    port: 587,
+    domain:'sandbox9be19d282c904903839649703269630a.mailgun.org',
+    authentication: 'plain',
+    user_name: 'postmaster@sandbox9be19d282c904903839649703269630a.mailgun.org',
+    password: 'b89d9c61897b2887257a624a58b7d604'
+  }
+  ## as you are working in a sandbox environment you need to invite recipients on mailgun website to be able to send them emails
 end
