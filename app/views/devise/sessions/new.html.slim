@@ -16,9 +16,13 @@
         span.pull-right
           = link_to "Forgot Password", new_user_password_path
 
-
+      br/
+      br/
+      
       .actions
-        = f.submit "Log in", class: 'btn btn-primary'
+        = f.submit "Log in", class: 'btn btn-normal btn-block'
 
-      = link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: 'btn btn-primary'
+      hr
+
+      = link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: 'btn btn-facebook btn-block'
 

@@ -18,8 +18,12 @@
         = f.password_field :password, autocomplete: "off",
           placeholder: "Password", class: 'form-control'
 
+      br/
+      br/
       .actions
-        = f.submit "Sign up", class: 'btn btn-primary'
+        = f.submit "Sign up", class: 'btn btn-normal btn-block'
 
-      = link_to "Sign up with Facebook", user_facebook_omniauth_authorize_path, class: 'btn btn-primary'
-    = render "devise/shared/links"
+      hr
+
+      = link_to "Sign up with Facebook", user_facebook_omniauth_authorize_path, class: 'btn btn-facebook btn-block'
+    / = render "devise/shared/links"

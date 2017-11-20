@@ -7,7 +7,7 @@
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand href="#"  Project name
+          a.navbar-brand href="#"  Air Pikachu
         #navbar.navbar-collapse.collapse
           ul.nav.navbar-nav.navbar-right
             - if (!user_signed_in?)
@@ -16,6 +16,9 @@
               li
                 = link_to "Sign Up", new_user_registration_path 
             - else
+
+
+
               li.dropdown
                 a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
                   = image_tag avatar_url(current_user), class:'img-circle avatar_small'
