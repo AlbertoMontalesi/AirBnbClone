@@ -37,6 +37,9 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem "slim-rails"
 gem 'toastr-rails'
+gem 'omniauth', '~> 1.6'
+gem 'omniauth-facebook', '~> 4.0'
+gem "figaro"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

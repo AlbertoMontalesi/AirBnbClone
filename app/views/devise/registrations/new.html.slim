@@ -20,4 +20,6 @@
 
       .actions
         = f.submit "Sign up", class: 'btn btn-primary'
+
+      = link_to "Sign up with Facebook", user_facebook_omniauth_authorize_path, class: 'btn btn-primary'
     = render "devise/shared/links"
