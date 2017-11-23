@@ -1,0 +1,15 @@
+.row
+  .col-md-3
+    .center
+      = image_tag avatar_url(@user), class:'avatar-full'
+    .panel.panel-default
+      .panel-heading Verification
+      .panel-body 
+        | Email Address
+        br
+        | Phone Number
+  .col-md-9
+    h2
+      = @user.fullname
+    .description.row-space-3
+      = @user.description
