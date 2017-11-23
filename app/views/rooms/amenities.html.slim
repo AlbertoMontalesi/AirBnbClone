@@ -1,0 +1,33 @@
+.row
+  .col-md-3
+    = render 'room_menu'
+  .col-md-9
+    .panel.panel-default
+      .panel-heading Amenities
+      
+      .panel-body
+        .container
+          = form_for @room do |f|
+            .row.form-group
+              .col-md-4
+                = f.check_box :is_tv 
+                | TV
+              .col-md-4
+                = f.check_box :is_kitchen 
+                | Kitchen
+              .col-md-4
+                = f.check_box :is_internet 
+                | Internet
+
+            .row.form-group
+              .col-md-4
+                = f.check_box :is_heating 
+                | Heating
+              .col-md-4
+                = f.check_box :is_air 
+                | Air Conditioning
+            br/
+            br/
+            .text-center
+              = f.submit "Save", class: "btn btn-form"
+          

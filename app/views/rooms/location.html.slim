@@ -1,0 +1,16 @@
+.row
+  .col-md-3
+    = render 'room_menu'
+  .col-md-9
+    .panel.panel-default
+      .panel-heading Location
+      
+      .panel-body
+        .container
+          = form_for @room do |f|
+            .row
+              .form-group
+                label Address
+                = f.text_field :address, placeholder: "What is your address?", class:'form-control'
+            .text-center
+              = f.submit "Save", class:'btn btn-form'          

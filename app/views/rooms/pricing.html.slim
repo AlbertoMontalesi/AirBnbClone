@@ -1,0 +1,18 @@
+.row
+  .col-md-3
+    = render 'room_menu'
+  .col-md-9
+    .panel.panel-default
+      .panel-heading Pricing
+      
+      .panel-body
+        .container
+          = form_for @room do |f|
+            .row
+              .form-group
+                label Price
+                = f.text_field :price, placeholder: "eg: 100$", class:'form-control'
+            .text-center
+              = f.submit "Save", class:'btn btn-form'          
+
+          

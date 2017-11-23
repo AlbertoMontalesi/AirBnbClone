@@ -1,4 +1,4 @@
-class RoomController < ApplicationController
+class RoomsController < ApplicationController
 
   ## use a before action so you dont have to write set room under all the actions. we dont want it for index new and create as we dont have a room during those actions
   before_action :set_room, except: [:index, :new, :create]

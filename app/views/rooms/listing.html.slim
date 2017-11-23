@@ -1,0 +1,46 @@
+.row
+  .col-md-3
+    = render 'room_menu'
+  .col-md-9
+    .panel.panel-default
+      .panel-heading Listing
+      
+      .panel-body
+        .container
+          = form_for @room do |f|
+
+            .col-md-4.select
+              .form-group
+                label Home Type
+                // the first value is to display, the second one is what we pass in rails
+                = f.select :home_type, [["Apartment","Apartment"],["House","House"],["Bed & Breakfast","Bed & Breakfast"]], id: "home_type", prompt: "Select...",  class: 'form-control'
+
+            .col-md-4.select
+              .form-group
+                label Room Type
+                // the first value is to display, the second one is what we pass in rails
+                = f.select :room_type, [["Entire","Entire"],["Private","Private"],["Shared","Shared"]], id: "room_type", prompt: "Select...", class: 'form-control'
+
+            .col-md-4.select
+              .form-group
+                label Accommodate
+                // the first value is to display, the second one is what we pass in rails
+                // in this case we pass in a integer, hence no quotation marks
+                = f.select :accommodate, [["1",1],["2",2],["3",3], ["4",4]], id: "accommodate", prompt: "Select...", class: 'form-control'
+
+            .col-md-4.select
+              .form-group
+                label Bedrooms
+                // the first value is to display, the second one is what we pass in rails
+                = f.select :bed_room, [["1",1],["2",2],["3",3], ["4",4]],  id: "bed_room", prompt: "Select...", class: 'form-control'
+
+            .col-md-4.select
+              .form-group
+                label Bathrooms
+                // the first value is to display, the second one is what we pass in rails
+                = f.select :bath_room, [["1",1],["2",2],["3",3], ["4",4]],  id: "bath_room", prompt: "Select...", class: 'form-control'
+            
+            .col-md-12
+              = f.submit "Save", class:'btn btn-normal'
+
+          
