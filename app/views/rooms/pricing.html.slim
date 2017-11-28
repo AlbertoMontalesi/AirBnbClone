@@ -11,7 +11,7 @@
             .row
               .form-group
                 label Price
-                = f.text_field :price, placeholder: "eg: 100$", class:'form-control'
+                = f.text_field :price, placeholder: "eg: 100$", class:'form-control', required: true
             .text-center
               = f.submit "Save", class:'btn btn-form'          
 

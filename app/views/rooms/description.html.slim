@@ -11,12 +11,12 @@
             .row
               .form-group
                 label Listing Name
-                = f.text_field :listing_name, placeholder: "What is your listing name", class:'form-control'
+                = f.text_field :listing_name, placeholder: "What is your listing name", class:'form-control', required: true
 
             .row
               .form-group
                 label Summary
-                = f.text_area :summary, rows: 5,placeholder: "Summary of your house", class:'form-control'
+                = f.text_area :summary, rows: 5,placeholder: "Summary of your house", class:'form-control', required: true
             .text-center
               = f.submit "Save", class:'btn btn-form'          
 
