@@ -40,6 +40,8 @@ gem 'toastr-rails'
 gem 'omniauth', '~> 1.6'
 gem 'omniauth-facebook', '~> 4.0'
 gem "figaro"
+gem "paperclip" 
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
