@@ -1,3 +1,8 @@
+/*
+ *= require font-awesome
+ */
+
+@import "font-awesome";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "toastr";
@@ -295,13 +300,14 @@ a {
   opacity: 0;
   outline: none;
   background: white;
-  cursor: inherit;  
+  cursor: inherit;
   display: block;
 }
 
 .panel-heading.preview {
-  padding:0; 
+  padding: 0;
 }
+
 .panel-heading.preview img {
   width: 100%;
 }

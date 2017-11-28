@@ -41,6 +41,8 @@ gem 'omniauth', '~> 1.6'
 gem 'omniauth-facebook', '~> 4.0'
 gem "figaro"
 gem "paperclip" 
+gem "font-awesome-rails"
+
 
 
 group :development, :test do

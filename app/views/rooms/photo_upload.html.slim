@@ -13,7 +13,9 @@
                 .row
                   .form-group
                     span.btn.btn-default.btn-file.text-babu 
-                      | Select Photos
+                      i.fa.fa-cloud-upload aria-hidden='true'
+                      |  Select Photos
+                      
                       = file_field_tag "images[]", type: :file, multiple: true
                 .text-center
                   = f.submit "Add Photos", class:"btn btn-form"
