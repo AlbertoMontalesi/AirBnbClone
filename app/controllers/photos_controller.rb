@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  
+
   def create
     @room = Room.find(params[:room_id])
 
@@ -19,7 +19,6 @@ class PhotosController < ApplicationController
     @photo.destroy
     @photos = Photo.where(room_id: room.id)
 
-    ## rails will know to look in destroy.js.erb
     respond_to :js
   end
 end

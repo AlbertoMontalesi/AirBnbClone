@@ -9,7 +9,7 @@
             = image_tag photo.image.url()
           .panel-body
             span.pull-right
-              = link_to room_photo_path(photo.room_id,photo), remote: true ,method: :delete, data: {confirm: "Are you sure?"} do
+              = link_to room_photo_path(photo.room_id, photo), remote: true, method: :delete, data: {confirm: "are you sure?"} do
                 i.fa.fa-trash-o aria-hidden="true" 
           
 
