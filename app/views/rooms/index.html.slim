@@ -1,2 +1,25 @@
-h1 Room#index
-p Find me in app/views/room/index.html.slim
+.row
+  .col-md-3
+    ul.sidebar-list
+      li.sidebar-item
+        = link_to "Your Listings", rooms_path, class:"sidebar-link active"
+      li.sidebar-item
+        = link_to "Your Reservations", rooms_path, class:"sidebar-link active"
+      
+
+  .col-md-9
+    .panel.panel-default
+      .panel-heading Listing
+      .panel-body
+        - @rooms.each do |room|
+          .row
+            .col-md-2
+              / we use the cover photo method created in the model
+              = image_tag room.cover_photo(:thumb), size:"100x100"
+            .col-md-7
+              h4
+                = room.listing_name
+            .col-md-3.right
+              = link_to "Update", listing_room_path(room), class: "btn btn-form"
+          hr
+            
