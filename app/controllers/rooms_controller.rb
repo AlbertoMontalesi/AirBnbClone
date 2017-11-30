@@ -51,7 +51,9 @@ class RoomsController < ApplicationController
   end
 
   def update
-    if @room.update(room_params)
+    new_params = room_params
+    new_params = room_params.merge(active: true) if is_ready_room 
+    if @room.update(new_params)
       flash[:notice] = "Saved..."
     else
       flash[:alert] = "Something went wrong..."
@@ -64,6 +66,10 @@ class RoomsController < ApplicationController
 
   def set_room
     @room = Room.find(params[:id])    
+  end
+
+  def is_ready_room
+    !@room.active && !@room.price.blank? && !@room.listing_name.blank? && !@room.photos.blank? && !@room.address.blank?
   end
 
   def room_params
