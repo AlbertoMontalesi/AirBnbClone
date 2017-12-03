@@ -2,6 +2,10 @@ class Room < ApplicationRecord
   belongs_to :user
   has_many :photos
 
+  ## generate a geocode using the address the user provides
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
   validates :home_type, presence: true
   validates :room_type, presence: true
   validates :accommodate, presence: true

@@ -1,0 +1,131 @@
+// image
+.row
+  .col-md-12
+    = image_tag @room.cover_photo(nil), width:"100%"
+
+br/ 
+
+.row
+  //left panel
+  .col-md-8
+
+    // listing name
+    .row
+      .col-md-8
+        h1
+          = @room.listing_name
+        = @room.address
+
+      .col-md-4.text-center
+        = image_tag avatar_url(@room.user), class:"img-circle avatar-large"
+        br/
+        br/
+        = @room.user.fullname
+    hr/
+
+    // room info
+    .row.text-babu
+      // display the amenities icons
+      .row.text-center.row-space-1
+        .col-md-3
+          i.fa.fa-home.fa-2x
+        .col-md-3
+          i.fa.fa-user-circle-o.fa-2x
+        .col-md-3
+          i.fa.fa-bed.fa-2x
+        .col-md-3
+          i.fa.fa-bath.fa-2x
+      // display infos for the amenities
+      .row.text-center
+        .col-md-3
+          = @room.home_type
+        .col-md-3
+          // it will display guest for 1 and guests for more
+          = pluralize(@room.accommodate, "Guest")
+        .col-md-3
+          = pluralize(@room.bed_room, "Bedroom")
+        .col-md-3
+          = pluralize(@room.bath_room, "Bathroom")
+
+    hr/
+
+    // about
+    .row
+      .col-md-12
+        h3 About This Listing
+        p
+          = @room.summary
+    hr/
+
+    /amenities
+    .row
+      .col-md-3
+        h4 Amenities
+      .col-md-9
+        .row
+          .col-md-6
+            ul.amenities
+              li class="#{ 'text-line-through' if !@room.is_tv}" TV
+              li class="#{ 'text-line-through' if !@room.is_kitchen}" Kitchen
+              li class="#{ 'text-line-through' if !@room.is_internet}" Internet
+          .col-md-6
+            ul.amenities
+              li class="#{ 'text-line-through' if !@room.is_heating}" Heating
+              li class="#{ 'text-line-through' if !@room.is_air}" Air Conditioning
+    hr/
+
+    // carousel
+    .row
+      // if we have more than 1 photo then we display a carousel
+      - if @photos.length > 0 
+        #myCarousel.carousel.slide data-ride="carousel" 
+          /! Indicators
+          ol.carousel-indicators
+            // loop over all the photos and dispay in the carousel
+            - @photos.each do |photo|
+              li data-slide-to="#{photo.id}" data-target="#myCarousel" 
+          /! Wrapper for slides
+          .carousel-inner
+            - @photos.each do |photo|
+              div class="item #{'active' if photo.id == @photos[0].id}"
+                = image_tag photo.image.url()
+          /! Left and right controls
+          a.left.carousel-control data-slide="prev" href="#myCarousel" 
+            span.glyphicon.glyphicon-chevron-left
+            span.sr-only Previous
+          a.right.carousel-control data-slide="next" href="#myCarousel" 
+            span.glyphicon.glyphicon-chevron-right
+            span.sr-only Next
+    hr/
+    //google map
+    .row
+      #map style="width: 100%; height:400px;"
+
+      script src="https://maps.googleapis.com/maps/api/js"
+
+      javascript:
+        function initialize() {
+          var location = {lat: #{@room.latitude}, lng: #{@room.longitude} };
+          var map = new google.maps.Map(document.getElementById('map'), {
+            center: location,
+            zoom: 14
+          });
+          var marker = new google.maps.Marker({
+            position: location,
+            map: map
+          });
+          // display one image above the marker
+          var infoWindow = new google.maps.InfoWindow({
+            content: '<div id="#content"> #{image_tag @room.cover_photo(:thumb), size:"100x100" } </div>'
+          });
+          infoWindow.open(map,marker)
+        }
+        
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+    hr/
+    
+
+  // right panel
+  .col-md-4
+  // reservation form

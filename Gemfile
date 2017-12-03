@@ -42,7 +42,7 @@ gem 'omniauth-facebook', '~> 4.0'
 gem "figaro"
 gem "paperclip" 
 gem "font-awesome-rails"
-
+gem 'geocoder'
 
 
 group :development, :test do
