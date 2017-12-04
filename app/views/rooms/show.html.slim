@@ -125,6 +125,19 @@ br/
 
     hr/
     
+    // near by rooms
+    .row
+      h3 Near By
+      // nearbys is a method from geocode and 10 is the miles that we want to use as a parameter for nearbys
+      - for room in @room.nearbys(10)
+        .col-md-4
+          .panel.panel-default
+            .panel-heading.preview
+              = image_tag room.cover_photo("medium"), size:"300x300"
+            .panel-body
+              = link_to room.listing_name, room, data: {turbolinks: false}
+              br/
+              | ( #{room.distance.round(2)} km away )
 
   // right panel
   .col-md-4
