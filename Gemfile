@@ -43,6 +43,7 @@ gem "figaro"
 gem "paperclip" 
 gem "font-awesome-rails"
 gem 'geocoder'
+gem 'jquery-ui-rails', '~> 5.0'  
 
 
 group :development, :test do

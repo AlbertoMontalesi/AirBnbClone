@@ -6,8 +6,11 @@ html
     = csrf_meta_tags
     
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" 
+    // jquery ui style
+    link href="https://code.jquery.com/ui/1.12.1/themes/hot-sneaks/jquery-ui.css" rel='stylesheet'
 
   body
     = render 'shared/navbar'
