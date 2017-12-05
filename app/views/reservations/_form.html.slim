@@ -1,9 +1,45 @@
-// we do like this so to tell rails that room is the parent of room.reservation because we nee the room id to create ar eservation for it
-= form_for ([@room, @room.reservations.new]) do |f|
-  = f.text_field :start_date
-  = f.text_field :end_date
-  br/
-  = f.submit "Book Now", class:'btn btn-normal btn-block'
+.panel.panel-default
+  .panel-heading
+    span 
+      i.fa.fa-bolt style="color: #ffb400" 
+      |  $
+      = @room.price
+    span.pull-right Per Night
+  .panel-body
+    // we do like this so to tell rails that room is the parent of room.reservation because we nee the room id to create ar eservation for it
+    = form_for ([@room, @room.reservations.new]) do |f|
+      .row
+        .col-md-6
+          label Check In
+          // we make it readonly so you cant type anything inside
+          = f.text_field :start_date, readonly: true, placeholder: "Start Date", class:"form-control datepicker"
+        .col-md-6
+          label Check Out
+          // when the user loads the page the checkout will be disabled 
+          = f.text_field :end_date, readonly: true, placeholder: "End Date", class:"form-control datepicker", disabled: true
+
+      // we dont want to display the preview until the user fills in the dates
+      #preview style="display: none"
+        table.reservation-table
+          tbody
+            tr
+              td Price
+              td.text-right $#{@room.price}
+            tr
+              td Night(s)
+              td.text-right
+                | hello
+                span#reservation_days
+            tr.total
+              td Total
+              td.text-right
+                | $
+                span#reservation_total
+                
+
+      br/
+      = f.submit "Book Now", class:'btn btn-normal btn-block'
+
 
 javascript:
   $(function(){
