@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get 'photo_upload'
       get 'amenities'
       get 'location'
+      get 'preload'
     end
     resources :photos, only: %i[create destroy]
     resources :reservations, only: [:create]
