@@ -7,9 +7,12 @@
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand href="#"  Air Pikachu
+          = link_to "Air Pikachu", root_path, class:'navbar-brand'
         #navbar.navbar-collapse.collapse
           ul.nav.navbar-nav.navbar-right
+            li
+              button.btn.btn-form.btn-small
+                = link_to "Become a Host", new_room_path, style: "color: white; text-decoration: none;"
             - if (!user_signed_in?)
               li
                 = link_to "Login", new_user_session_path
@@ -28,13 +31,13 @@
                   span.caret
                 ul.dropdown-menu
                   li
-                    a href="#"  Manage listings
+                    = link_to "Manage Listings", rooms_path
                   li
-                    a href="#"  List your space
+                    = link_to "List your space", new_room_path
                   li
-                    a href="#"  Your reservations
+                    = link_to "Your Reservations", your_reservations_path
                   li
-                    a href="#"  Your trips
+                    = link_to "Your Trips", your_trips_path
                   li.divider role="separator" 
                   li
                     = link_to "Edit Profile", edit_user_registration_path
