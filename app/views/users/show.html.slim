@@ -5,11 +5,35 @@
     .panel.panel-default
       .panel-heading Verification
       .panel-body 
-        | Email Address
-        br
-        | Phone Number
+        ul.sidebar-list
+          - if @user.confirmation_token
+            li 
+              | Email Address
+              span.pull-right.icon-babu
+                i.fa.fa-check-circle-o
+          - if @user.provider
+            li 
+              | Facebook
+              span.pull-right.icon-babu
+                i.fa.fa-check-circle-o
+          li 
+            | Phone Number
+            span.pull-right.icon-babu
+              i.fa.fa-check-circle-o
   .col-md-9
     h2
       = @user.fullname
     .description.row-space-3
       = @user.description
+    
+    h4 Listings #{@rooms.length}
+    br/
+
+    .row
+      - @rooms.each do |room|
+        .col-md-4
+          .panel.panel-default
+            .panel-heading.preview
+              = image_tag room.cover_photo(:medium), size:"300x200"
+            .panel-body 
+              = link_to room.listing_name, room
