@@ -2,6 +2,7 @@ class Room < ApplicationRecord
   belongs_to :user
   has_many :photos
   has_many :reservations
+  has_many :guest_reviews
   ## generate a geocode using the address the user provides
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
@@ -20,5 +21,9 @@ class Room < ApplicationRecord
       ## otherwise display the placeholder
       'blank.jpg'
     end
+  end
+
+  def average_rating
+    guest_reviews.count == 0 ? 0 : guest_reviews.average(:star).round(2).to_i
   end
 end
