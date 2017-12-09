@@ -20,7 +20,7 @@ class GuestReviewsController < ApplicationController
         flash[:success] = 'Review created...'
       else
         ## the user already reviewed
-        flash[:success] = 'You already reviewed this reservation'
+        flash[:alert] = 'You already reviewed this reservation'
       end
     else
       flash[:alert] = 'Not found this reservation'
@@ -39,6 +39,6 @@ class GuestReviewsController < ApplicationController
 
   def guest_review_params
     ## we dont need to specify the host id  because we already have it, it's the id of the current user
-    params.require(:host).permit(:comment, :star, :room_id, :reservation_id, :host_id)
+    params.require(:guest_review).permit(:comment, :star, :room_id, :reservation_id, :host_id)
   end
 end

@@ -1,0 +1,21 @@
+/! Trigger the modal with a button
+button.btn.btn-normal data-target="#myModal_#{reservation.id}" data-toggle="modal" type="button" Review Host
+/! Modal
+.modal.fade id=("myModal_#{reservation.id}") role='dialog'
+  .modal-dialog
+    /! Modal content
+    .modal-content
+      .modal-header
+        button.close data-dismiss="modal" type="button"  ×
+        h4.modal-title  Review your host
+      .modal-body
+        = form_for(current_user.guest_reviews.new) do |f|
+          .form-group.text-center
+            = f.text_field :star
+          .form-group
+            = f.text_area :comment, rows: 3, class:"form-control"
+          = f.hidden_field :room_id, value: reservation.room.id
+          = f.hidden_field :reservation_id, value: reservation.id 
+          = f.hidden_field :host_id,  value: reservation.room.user.id
+          .text-center
+            = f.submit "Add Review", class:"btn btn-normal"

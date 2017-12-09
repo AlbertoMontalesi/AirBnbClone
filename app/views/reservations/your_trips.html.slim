@@ -21,12 +21,17 @@
               = link_to room_path(trip.room) do
                 / we use the cover photo method created in the model
                 = image_tag trip.room.cover_photo(:thumb), size:"100x100"
-            .col-md-8
+            .col-md-5
               = link_to trip.room.listing_name, room_path(trip.room)
-              span.pull-right.text-center
-                = image_tag avatar_url(trip.room.user), class:'img-circle avatar-medium'
+              br/
+              br/
+              span
+                = image_tag avatar_url(trip.room.user), class:'img-circle avatar-small'
                 br/
                 = link_to user_path(trip.room.user) do
                   = trip.room.user.fullname
+            .col-md-3.text-right
+              // we pass in every trip (the variable for each trip) as reservation, so that we can use reservation in the partial
+              = render partial: "reviews/guest_form", locals: {reservation: trip}
           hr
             

@@ -21,13 +21,16 @@
               .col-md-2
                 = link_to room_path(reservation.room) do
                   = image_tag reservation.room.cover_photo(:thumb), size:"100x100"
-              .col-md-8
+              .col-md-5
                 = link_to reservation.room.listing_name, room_path(reservation.room)
                 br/
                 br/
                 span
                   = link_to user_path(reservation.user) do 
                     = image_tag avatar_url(reservation.user), class:"img-circle avatar-small"
+                    br/
                     = reservation.user.fullname
                 hr/
+              // we pass in every reservation (the variable for each reservation) as reservation, so that we can use reservation in the partial
+              = render partial: "reviews/host_form", locals: {reservation: reservation}
 
